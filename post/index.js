@@ -8,13 +8,18 @@ const post = {};
 
 app.use(bodyParser.json());
 
-app.get('/get', (req, res) => { })
+app.get('/post', (req, res) => {
+    res.status(201).send(post)
+
+ })
 
 app.post('/post', (req, res) => {
-
+console.log("its working!!")
     const id = randomBytes(4).toString('hex');
     const title = req.body
     post[id] = { id, title }
+
+    res.status(201).send(post[id])
 
 })
 
