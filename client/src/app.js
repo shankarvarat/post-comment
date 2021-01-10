@@ -1,4 +1,8 @@
-import react from  'react';
+import React from  'react';
+import PostCreate  from './postCreate'
 export default()=>{
-    return <div>Blog App</div>
+    return <div>
+        <h1>Create Post</h1>
+        <PostCreate/>
+    </div>
 }
