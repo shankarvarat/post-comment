@@ -8,7 +8,7 @@ const app = express();
 const post = {};
 
 app.use(bodyParser.json());
-app.use(cors);
+app.use(cors());
 
 app.get('/post', (req, res) => {
     res.status(201).send(post)
@@ -18,8 +18,13 @@ app.get('/post', (req, res) => {
 app.post('/post', (req, res) => {
     console.log("its working!!")
     const id = randomBytes(4).toString('hex');
-    const title = req.body
-    post[id] = { id, title }
+    const { title } = req.body;
+
+    post[id] = {
+      id,
+      title
+    };
+  
 
     res.status(201).send(post[id])
 
