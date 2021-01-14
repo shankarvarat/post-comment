@@ -7,6 +7,8 @@ export default () => {
   const [posts, setPosts] = useState({});
   const fetchPosts = async () => {
     const res = await axios.get('http://localhost:4002/post');
+    console.log(res.data)
+
     setPosts(res.data);
   };
 
@@ -23,14 +25,12 @@ export default () => {
       >
         <div className="card-body">
           <h3>{post.title}</h3>
-          <CreateComments postId={post.id} />        </div>
-        <dir />
-        <CommentsList postId={post.id} />
-
+          <CommentsList postId={post.id} />
+          <CreateComments postId={post.id} />
+        </div>
       </div>
     );
   });
-
   return (
     <div className="d-flex flex-row flex-wrap justify-content-between">
       {renderedPosts}
