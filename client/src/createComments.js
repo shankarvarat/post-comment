@@ -13,7 +13,7 @@ export default ({ postId }) => {
 
     return (
         <div>
-            <form onSubmit={onsubmit}>
+            <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label>New Comment</label>
 
