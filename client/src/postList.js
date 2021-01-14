@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import CreateComments from './createComments';
 
 export default () => {
   const [posts, setPosts] = useState({});
-
   const fetchPosts = async () => {
     const res = await axios.get('http://localhost:4002/post');
-
     setPosts(res.data);
   };
 
@@ -23,7 +22,7 @@ export default () => {
       >
         <div className="card-body">
           <h3>{post.title}</h3>
-        </div>
+          <CreateComments postId={post.id} />        </div>
       </div>
     );
   });
