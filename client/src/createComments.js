@@ -5,15 +5,17 @@ export default ({ postId }) => {
     const [content, setContent] = useState('');
     const onSubmit = async event => {
         event.preventDefault();
-        await axios.post(`http://localhost:4001/post/${postId}/comments`, {
+        const res = await axios.post(`http://localhost:4001/post/${postId}/comments`, {
             content
         });
+        console.log(res)
+
         setContent('');
     };
 
     return (
         <div>
-            <form onSubmit={onsubmit}>
+            <form onSubmit={onSubmit}>
                 <div className="form-group">
                     <label>New Comment</label>
 
